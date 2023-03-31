@@ -2,6 +2,7 @@ package com.example.SweepStakes.util;
 
 
 import com.example.SweepStakes.dto.bet.GetBetDTO;
+import com.example.SweepStakes.dto.horse.HorseDTO;
 import com.example.SweepStakes.dto.race.CreateRaceDTO;
 import com.example.SweepStakes.dto.race.GetRaceDTO;
 import com.example.SweepStakes.dto.race.UpdateRaceDTO;
@@ -9,6 +10,7 @@ import com.example.SweepStakes.model.Bet;
 import com.example.SweepStakes.model.Horse;
 import com.example.SweepStakes.model.Race;
 import com.example.SweepStakes.model.enums.RaceStatus;
+import com.example.SweepStakes.repository.HorseRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
@@ -22,6 +24,7 @@ import java.util.stream.Collectors;
 public class MyMapper {
 
 
+    private final HorseRepository horseRepository;
 
     public ModelMapper getMapper(){
         ModelMapper mapper = new ModelMapper();
@@ -42,16 +45,19 @@ public class MyMapper {
         Converter<List<String>, List<Horse>> createRaceDTORaceConverter =
                 src -> src.getSource() == null ? null : src.getSource()
                         .stream()
-                        .map(name -> {
-                            Horse horse = new Horse();
-                            horse.setName(name);
-                            return horse;
-                        }).collect(Collectors.toList());
+                        .map(name -> horseRepository.findByName(name)
+                                .orElse(Horse.builder().name(name).build())
+                        ).collect(Collectors.toList());
 
-        Converter<List<Horse>, List<String>> listHorseListStringConverter =
+        Converter<List<Horse>, List<HorseDTO>> listHorseListStringConverter =
                 src -> src.getSource() == null ? null : src.getSource()
                         .stream()
-                        .map(Horse::getName).collect(Collectors.toList());
+                        .map(horse ->
+                                HorseDTO.builder()
+                                        .id(horse.getId()).
+                                        name(horse.getName())
+                                        .build())
+                        .collect(Collectors.toList());
 
 
 

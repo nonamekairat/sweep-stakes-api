@@ -1,4 +1,4 @@
-package com.example.SweepStakes.exception;
+package com.example.SweepStakes.exception.custom;
 
 
 public class NotEnoughMoneyException extends RuntimeException {

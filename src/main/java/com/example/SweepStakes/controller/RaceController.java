@@ -1,7 +1,6 @@
 package com.example.SweepStakes.controller;
 
 
-import com.example.SweepStakes.dto.horse.HorseDTO;
 import com.example.SweepStakes.dto.race.CreateRaceDTO;
 import com.example.SweepStakes.dto.race.FinishRaceDTO;
 import com.example.SweepStakes.dto.race.GetRaceDTO;

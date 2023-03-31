@@ -3,9 +3,9 @@ package com.example.SweepStakes.service;
 
 import com.example.SweepStakes.dto.bet.BetDTO;
 import com.example.SweepStakes.dto.bet.GetBetDTO;
-import com.example.SweepStakes.exception.NotEnoughMoneyException;
-import com.example.SweepStakes.exception.ResourceNotFoundException;
-import com.example.SweepStakes.exception.WrongHorseInRaceException;
+import com.example.SweepStakes.exception.custom.NotEnoughMoneyException;
+import com.example.SweepStakes.exception.custom.ResourceNotFoundException;
+import com.example.SweepStakes.exception.custom.WrongHorseInRaceException;
 import com.example.SweepStakes.model.Bet;
 import com.example.SweepStakes.model.Horse;
 import com.example.SweepStakes.model.Race;
@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

@@ -1,12 +1,11 @@
 package com.example.SweepStakes.service;
 
 
-import com.example.SweepStakes.dto.bet.GetBetDTO;
 import com.example.SweepStakes.dto.race.CreateRaceDTO;
 import com.example.SweepStakes.dto.race.FinishRaceDTO;
 import com.example.SweepStakes.dto.race.GetRaceDTO;
 import com.example.SweepStakes.dto.race.UpdateRaceDTO;
-import com.example.SweepStakes.exception.ResourceNotFoundException;
+import com.example.SweepStakes.exception.custom.ResourceNotFoundException;
 import com.example.SweepStakes.model.Bet;
 import com.example.SweepStakes.model.Horse;
 import com.example.SweepStakes.model.Race;
@@ -25,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Service
 @RequiredArgsConstructor

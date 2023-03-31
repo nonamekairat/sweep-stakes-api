@@ -1,6 +1,11 @@
-package com.example.SweepStakes.exception;
+package com.example.SweepStakes.exception.handler;
 
 
+import com.example.SweepStakes.exception.*;
+import com.example.SweepStakes.exception.custom.NotEnoughMoneyException;
+import com.example.SweepStakes.exception.custom.ResourceNotFoundException;
+import com.example.SweepStakes.exception.custom.UserAlreadyExistException;
+import com.example.SweepStakes.exception.custom.WrongHorseInRaceException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

@@ -16,6 +16,7 @@ public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     //TODO check identity, auto
 //
 //    @CreationTimestamp

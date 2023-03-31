@@ -1,6 +1,7 @@
 package com.example.SweepStakes.dto.race;
 
 
+import com.example.SweepStakes.dto.horse.HorseDTO;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -17,7 +18,7 @@ public class GetRaceDTO {
 
     Long id;
     String name;
-    List<String> horses;
+    List<HorseDTO> horses;
     String raceStatus;
 
 

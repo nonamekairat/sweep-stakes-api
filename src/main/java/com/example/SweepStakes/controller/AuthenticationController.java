@@ -3,7 +3,7 @@ package com.example.SweepStakes.controller;
 import com.example.SweepStakes.dto.AuthenticationResponse;
 import com.example.SweepStakes.dto.user.AuthUserDto;
 import com.example.SweepStakes.dto.user.CreateUserDto;
-import com.example.SweepStakes.exception.UserAlreadyExistException;
+import com.example.SweepStakes.exception.custom.UserAlreadyExistException;
 import com.example.SweepStakes.service.*;
 
 import lombok.RequiredArgsConstructor;
