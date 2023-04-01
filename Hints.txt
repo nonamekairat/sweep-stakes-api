@@ -1,0 +1,23 @@
+1. downloaded docker : https://docs.docker.com/desktop/install/windows-install/
+2. downloaded WSL
+3. run the Docker
+4. created Dockerfile :(inside)
+FROM openjdk:18
+ADD target/shop-dockerfile.jar shop.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/shop.jar"]
+
+commands
+a.Dockerfile
+
+1. docker pull postgres -  To pull down an image for the latest stable release of Postgres (Docker pull command)
+2. docker run --name postgres-shop -e POSTGRES_DB=shop -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres  - Starting the  PostgreSQL server(Docker run command)
+3. mvn clean package(this command line didn't work for me so i ran "clean" and "package" in "Maven/learningSpring/Lifecycle/clean;package")-create JAR file
+/Builds the project and packages the resulting JAR file into the target directory.
+4. docker build -t shop . -building application container
+5. docker run -d -p 8080:8080 --name shop --link postgres-shop shop - run the container
+6. Docker ps see our images and containers
+
+b.docker-compose
+1.Created a file called docker-compose.yml
+1.docker-compose -f docker-compose up - for building and running app with Compose
