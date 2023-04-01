@@ -22,6 +22,8 @@ import org.springframework.ui.ModelMap;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
+    //soemhting
+
     private final UserRepository repository;
     private final MyMapper mapper;
 
