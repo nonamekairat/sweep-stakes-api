@@ -4,6 +4,7 @@ import com.example.SweepStakes.dto.AuthenticationResponse;
 import com.example.SweepStakes.dto.user.AuthUserDto;
 import com.example.SweepStakes.dto.user.CreateUserDto;
 import com.example.SweepStakes.dto.user.GetUserDto;
+import com.example.SweepStakes.dto.user.MoneyDto;
 import com.example.SweepStakes.exception.custom.UserAlreadyExistException;
 import com.example.SweepStakes.model.User;
 import com.example.SweepStakes.model.enums.Role;
@@ -72,9 +73,9 @@ public class UserService {
         return new GetUserDto().getUserDto(user);
     }
 
-    public String addMoney(User user, int money) {
+    public String addMoney(User user, MoneyDto money) {
 
-        user.setMoney(user.getMoney() + money);
+        user.setMoney(user.getMoney() + money.getMoney());
         userRepository.save(user);
 
         return "money successfully added";

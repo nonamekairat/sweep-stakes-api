@@ -1,6 +1,7 @@
 package com.example.SweepStakes.controller;
 
 import com.example.SweepStakes.dto.user.GetUserDto;
+import com.example.SweepStakes.dto.user.MoneyDto;
 import com.example.SweepStakes.model.User;
 import com.example.SweepStakes.service.UserService;
 
@@ -24,7 +25,7 @@ public class UserController {
 
     @PostMapping("/add-money")
     public ResponseEntity<String> addMoney(@AuthenticationPrincipal User user,
-                                               @RequestBody int money){
+                                               @RequestBody MoneyDto money){
         return ResponseEntity.ok(userService.addMoney(user, money));
     }
 
