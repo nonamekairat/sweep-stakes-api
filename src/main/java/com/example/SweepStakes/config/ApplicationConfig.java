@@ -22,7 +22,7 @@ import org.springframework.ui.ModelMap;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    //soemhting
+    //something
 
     private final UserRepository repository;
     private final MyMapper mapper;

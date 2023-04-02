@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository repository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -28,7 +28,7 @@ public class UserService {
 
 
     public AuthenticationResponse register(CreateUserDto request) throws UserAlreadyExistException {
-        if(repository.existsByUsername(request.getUsername()))
+        if(userRepository.existsByUsername(request.getUsername()))
             throw new UserAlreadyExistException(
                     "username",
                     "User with this username is already exists"
@@ -42,7 +42,7 @@ public class UserService {
                 .role(Role.ROLE_ADMIN)
                 .money(0)
                 .build();
-        repository.save(user);
+        userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
 
         return AuthenticationResponse
@@ -59,7 +59,7 @@ public class UserService {
                     request.getPassword()
             )
         );
-        var user = repository.findByUsername(request.getUsername()).orElseThrow();
+        var user = userRepository.findByUsername(request.getUsername()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
 
         return AuthenticationResponse
@@ -70,5 +70,13 @@ public class UserService {
 
     public GetUserDto getUserDto(User user) {
         return new GetUserDto().getUserDto(user);
+    }
+
+    public String addMoney(User user, int money) {
+
+        user.setMoney(user.getMoney() + money);
+        userRepository.save(user);
+
+        return "money successfully added";
     }
 }
